@@ -60,12 +60,10 @@ def analyze_csv(input_file, output_file, positive_word, negative_word):
 
             total_reviews += 1
 
-    # Calcul des pourcentages
     percent_positif = (total_positif / total_reviews) * 100
     percent_negatif = (total_negatif / total_reviews) * 100
     percent_neutre = (total_neutre / total_reviews) * 100
 
-    # Affichage des résultats sous forme de tableau
     print("\n-------------------------------")
     print("|   Proportion des résultats    | POSITIF | NEGATIF | NEUTRE |")
     print("-------------------------------")
@@ -75,7 +73,6 @@ def analyze_csv(input_file, output_file, positive_word, negative_word):
 
     return positive_synonyms, negative_synonyms
 
-# Fonction pour afficher les synonymes si l'utilisateur le souhaite
 def display_synonyms(positive_synonyms, negative_synonyms):
     choice = input("Souhaitez-vous voir la liste des synonymes utilisés pour le test?\n1 : Oui\n2 : Non\nVotre choix : ")
     
@@ -87,14 +84,11 @@ def display_synonyms(positive_synonyms, negative_synonyms):
     else:
         print("Fin du programme.")
 
-# Paramètres du fichier CSV et des mots de base
 input_file = 'ElectronicsReview.csv'
 output_file = 'results.csv'
 positive_word = 'good'
 negative_word = 'bad'
 
-# Exécution de l'analyse des sentiments et récupération des synonymes
 positive_synonyms, negative_synonyms = analyze_csv(input_file, output_file, positive_word, negative_word)
 
-# Affichage de la liste des synonymes si demandé
 display_synonyms(positive_synonyms, negative_synonyms)

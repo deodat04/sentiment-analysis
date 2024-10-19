@@ -30,10 +30,6 @@ est généré et affiche les résultats de chaque avis.
 
 
 ## 8. Informations sur certains fichiers et dossier du projet
-- metriques.py est le programme permettant de calculer l'exactitude de cette approche
-- assets contient les images utilisées dans le rapport qui présentent les différentes approches
+- metriques.py est le programme permettant de calculer l'exactitude et la précision de cette approche
+- assets contient les images utilisées dans le rapport
 - ElectronicsReviews.csv représente le corpus initial et gold_standard.csv le gold standard
-
-
-- https://github.com/nltk/nltk/blob/develop/nltk/sentiment/vader.py
-- https://stackoverflow.com/questions/40325980/how-is-the-vader-compound-polarity-score-calculated-in-python-nltk

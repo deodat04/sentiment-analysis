@@ -8,7 +8,6 @@ def metriques_csv(gold_standard, result_file):
         reader1 = csv.DictReader(gold)
         reader2 = csv.DictReader(res)
 
-        # On lit les deux fichiers ligne par ligne en parallèle
         for row1, row2 in zip(reader1, reader2):
             sentiment_gold = row1['reviews.doRecommend']
             sentiment_result = row2['result']
@@ -67,10 +66,10 @@ def analyse_metrique_positif(gold_standard, result_file):
     A = 'Positif'
     NA = ['Négatif', 'Neutre']
 
-    VP = 0  # Vrai Positif: Positif prédit et réel
-    FN = 0  # Faux Négatif: Positif réel mais non prédit
-    FP = 0  # Faux Positif: Positif prédit mais non réel
-    VN = 0  # Vrai Négatif: Non Positif prédit et non positif réel
+    VP = 0  
+    FN = 0  
+    FP = 0  
+    VN = 0  
 
     with open(gold_standard, mode='r', encoding='utf-8') as gold, open(result_file, mode='r', encoding='utf-8') as res:
         reader1 = csv.DictReader(gold)
@@ -107,10 +106,10 @@ def analyse_metrique_neutre(gold_standard, result_file):
     A = 'Neutre'
     NA = ['Positif', 'Négatif']
 
-    VP = 0  # Vrai Positif: Neutre prédit et réel
-    FN = 0  # Faux Négatif: Neutre réel mais non prédit
-    FP = 0  # Faux Positif: Neutre prédit mais non réel
-    VN = 0  # Vrai Négatif: Non Neutre prédit et non neutre réel
+    VP = 0  
+    FN = 0  
+    FP = 0  
+    VN = 0  
 
     with open(gold_standard, mode='r', encoding='utf-8') as gold, open(result_file, mode='r', encoding='utf-8') as res:
         reader1 = csv.DictReader(gold)
@@ -140,18 +139,13 @@ def analyse_metrique_neutre(gold_standard, result_file):
     print(f"Précision sur les avis neutres : {precision_neutre * 100:.2f}%")
     return VP, VN, FP, FN
 
-# Fichiers d'entrée
 gold = 'gold_standard.csv'
 res = 'results.csv'
 
-# Exécuter les métriques générales
 metriques_csv(gold, res)
 
-# Analyser les métriques spécifiques aux avis négatifs
 analyse_metrique_negatif(gold, res)
 print('\n')
-# Analyser les métriques spécifiques aux avis positifs
 analyse_metrique_positif(gold, res)
 print('\n')
-# Analyser les métriques spécifiques aux avis neutre
 analyse_metrique_neutre(gold, res)
