@@ -1,7 +1,6 @@
 import csv
 from nltk.corpus import wordnet
 
-# Fonction pour récupérer les synonymes via WordNet
 def get_synonyms(word):
     synonyms = []
     for syn in wordnet.synsets(word):
@@ -9,7 +8,6 @@ def get_synonyms(word):
             synonyms.append(lemma.name())
     return list(set(synonyms))
 
-# Fonction pour analyser un avis et déterminer le sentiment
 def analyze_review(review_text, positive_synonyms, negative_synonyms):
     words = review_text.lower().split()
 
@@ -29,7 +27,6 @@ def analyze_review(review_text, positive_synonyms, negative_synonyms):
     else:
         return "Neutre"
 
-# Fonction pour analyser un fichier CSV et calculer les résultats
 def analyze_csv(input_file, output_file, positive_word, negative_word):
     positive_synonyms = get_synonyms(positive_word)
     negative_synonyms = get_synonyms(negative_word)
