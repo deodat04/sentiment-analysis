@@ -8,7 +8,7 @@
 ## 2. Se connecter à l'environnement virtuel tp_python
 `source /usr/bin/tp_python_virtualenv`
 
-## 3. Naviguer vers le répertoires du projet
+## 3. Naviguer vers le répertoire du projet
 `cd repertoire/du/projet`
 
 ## 4. Executer le programme d'approche naïve
